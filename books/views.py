@@ -30,44 +30,6 @@ class BookListView(generics.ListAPIView):
     filterset_fields = ['published_date']
     ordering_fields = ['date', ]
 
-    # response = requests.get(
-    #     'https://www.googleapis.com/books/v1/volumes?q=Hobbit')
-    # res = response.json()
-    # for e in res['items']:
-    #     book_id = e['id']
-    #     info = e['volumeInfo']
-    #     title = check_key(info, 'title')
-    #     published_date = check_key(info, 'publishedDate')
-    #     average_rating = check_key(info, 'averageRating')
-    #     ratings_count = check_key(info, 'ratingsCount')
-    #     thumbnail = check_key(info, 'imageLinks', 'thumbnail')
-    #     new_book = Book(
-    #         book_id=book_id,
-    #         title=title,
-    #         published_date=published_date,
-    #         average_rating=average_rating,
-    #         ratings_count=ratings_count,
-    #         thumbnail=thumbnail
-    #     )
-    #     new_book.save()
-
-    #     try:
-    #         for name in info['authors']:
-    #             add_author, _ = Author.objects.get_or_create(name=name)
-    #             new_book.authors.add(add_author)
-    #     except:
-    #         pass
-
-    #     try:
-    #         for category in info['categories']:
-    #             add_category, _ = Category.objects.get_or_create(
-    #                 category=category)
-    #             new_book.categories.add(add_category)
-    #     except:
-    #         pass
-
-    #     new_book.save()
-
     def get_queryset(self):
         '''
         Queryset for authors filtering
